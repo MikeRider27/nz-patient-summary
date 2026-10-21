@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: nz-patient-summary
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+fhir:
+  validation:
+    # Pinned to the exact dependency set of tewhatuora.fhir.nzps 0.7.0 (see pom.xml).
+    packages:
+      - tewhatuora.fhir.nzps-0.7.0.tgz
+      - fhir.org.nz.ig.base-3.0.1.tgz
+      - hl7.fhir.uv.ips-2.0.0.tgz
+      - hl7.fhir.uv.ipa-1.1.0.tgz
+      - hl7.fhir.uv.extensions.r4-5.2.0.tgz
+      - hl7.terminology.r4-7.1.0.tgz
+    default-profile: https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-bundle
+    # Set e.g. FHIR_VALIDATION_TERMINOLOGY_SERVER_URL=https://tx.fhir.org/r4 for full SNOMED CT / LOINC checks.
+    terminology-server-url: ${FHIR_VALIDATION_TERMINOLOGY_SERVER_URL:}
+    warm-up: true

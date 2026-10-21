@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.16</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>nz.portfolio.fhir</groupId>
+    <artifactId>nz-patient-summary</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>nz-patient-summary</name>
+    <description>Generates and validates New Zealand Patient Summary (NZPS / IPS) FHIR R4 document Bundles</description>
+
+    <properties>
+        <java.version>21</java.version>
+        <hapi-fhir.version>8.12.1</hapi-fhir.version>
+        <!-- Spring Boot 3.5 manages an older commons-lang3; HAPI 8.12 is built against 3.18 (uses Strings). -->
+        <commons-lang3.version>3.18.0</commons-lang3.version>
+
+        <!--
+          FHIR NPM packages used for validation. Versions are pinned to exactly the dependency set
+          that tewhatuora.fhir.nzps 0.7.0 was published against (see its package.json), so the
+          validator never sees two versions of the same canonical resource.
+        -->
+        <fhir.packages.registry>https://packages.fhir.org</fhir.packages.registry>
+        <fhir.packages.dir>${project.build.outputDirectory}/fhir-packages</fhir.packages.dir>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ca.uhn.hapi.fhir</groupId>
+                <artifactId>hapi-fhir-bom</artifactId>
+                <version>${hapi-fhir.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-structures-r4</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation-resources-r4</artifactId>
+        </dependency>
+        <!-- Required by the optional remote terminology server (fhir.validation.terminology-server-url). -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-caching-caffeine</artifactId>
+            <version>${hapi-fhir.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <!-- *IT classes (Spring context + full FHIR validation) run in the integration-test phase. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--
+              Downloads the registry-published FHIR packages once (cached under ~/.m2 by the plugin),
+              verifies their SHA-256 and places them on the classpath, so the packaged jar and the
+              Docker image are fully offline at runtime. NZPS 0.7.0 is not published to any registry
+              and is therefore vendored in src/main/resources/fhir-packages.
+            -->
+            <plugin>
+                <groupId>com.googlecode.maven-download-plugin</groupId>
+                <artifactId>download-maven-plugin</artifactId>
+                <version>1.13.0</version>
+                <configuration>
+                    <outputDirectory>${fhir.packages.dir}</outputDirectory>
+                    <skipCache>false</skipCache>
+                    <retries>3</retries>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>fhir-nz-base</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>wget</goal></goals>
+                        <configuration>
+                            <url>${fhir.packages.registry}/fhir.org.nz.ig.base/3.0.1</url>
+                            <outputFileName>fhir.org.nz.ig.base-3.0.1.tgz</outputFileName>
+                            <sha256>80f556a7fe50893e3bb594001b388222544cf31ee7b765b3d782dd2e5e77066b</sha256>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>fhir-ips</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>wget</goal></goals>
+                        <configuration>
+                            <url>${fhir.packages.registry}/hl7.fhir.uv.ips/2.0.0</url>
+                            <outputFileName>hl7.fhir.uv.ips-2.0.0.tgz</outputFileName>
+                            <sha256>b3964eba08ee699bc121b905c4290641e54dd34f2cf3b5cd3edeb08a40a66979</sha256>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>fhir-ipa</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>wget</goal></goals>
+                        <configuration>
+                            <url>${fhir.packages.registry}/hl7.fhir.uv.ipa/1.1.0</url>
+                            <outputFileName>hl7.fhir.uv.ipa-1.1.0.tgz</outputFileName>
+                            <sha256>013b9f91683c496fc09eed93a8798b47dcbfb775587890fa3e11253a2409feef</sha256>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>fhir-extensions</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>wget</goal></goals>
+                        <configuration>
+                            <url>${fhir.packages.registry}/hl7.fhir.uv.extensions.r4/5.2.0</url>
+                            <outputFileName>hl7.fhir.uv.extensions.r4-5.2.0.tgz</outputFileName>
+                            <sha256>b406e75575f05676559d0759770c5939d023ee72fb2ef38e0b3259328487720a</sha256>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>fhir-terminology</id>
+                        <phase>generate-resources</phase>
+                        <goals><goal>wget</goal></goals>
+                        <configuration>
+                            <url>${fhir.packages.registry}/hl7.terminology.r4/7.1.0</url>
+                            <outputFileName>hl7.terminology.r4-7.1.0.tgz</outputFileName>
+                            <sha256>1cb0cd5601972925fcd04f2c175d9cc63a9ecd9346a91a6e735f1a865dc5fba1</sha256>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
