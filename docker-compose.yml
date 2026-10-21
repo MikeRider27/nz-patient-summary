@@ -1,0 +1,11 @@
+services:
+  nz-patient-summary:
+    build: .
+    image: nz-patient-summary:latest
+    ports:
+      - "8080:8080"
+    environment:
+      # Optional: full SNOMED CT / LOINC validation via a FHIR terminology server,
+      # e.g. FHIR_VALIDATION_TERMINOLOGY_SERVER_URL=https://tx.fhir.org/r4 docker compose up
+      FHIR_VALIDATION_TERMINOLOGY_SERVER_URL: ${FHIR_VALIDATION_TERMINOLOGY_SERVER_URL:-}
+    restart: unless-stopped
