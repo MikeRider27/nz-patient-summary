@@ -1,0 +1,51 @@
+{
+  "name": "nz-patient-summary (Java 21 + Maven)",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
+
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "true",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": false
+    }
+  },
+
+  // Named volumes survive container rebuilds:
+  //  - Maven local repository, so dependencies are not re-downloaded
+  //  - FHIR NPM package cache (~/.fhir), so NZ Base / IPS packages are fetched once
+  "mounts": [
+    "source=nz-patient-summary-m2,target=/home/vscode/.m2,type=volume",
+    "source=nz-patient-summary-fhir,target=/home/vscode/.fhir,type=volume"
+  ],
+
+  // New named volumes are created root-owned; hand them to the non-root user.
+  "postCreateCommand": "sudo chown -R vscode:vscode /home/vscode/.m2 /home/vscode/.fhir && java -version && mvn -v && docker compose version",
+
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "NZ Patient Summary API", "onAutoForward": "notify" }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-boot-dev-pack",
+        "ms-azuretools.vscode-docker",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "bierner.markdown-mermaid"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "files.eol": "\n"
+      }
+    }
+  },
+
+  "remoteUser": "vscode"
+}
