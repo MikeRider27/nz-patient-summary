@@ -1,0 +1,487 @@
+{
+  "resourceType": "Bundle",
+  "id": "3e989f41-981c-4795-ab04-8a4a3d58811a",
+  "meta": {
+    "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-bundle" ],
+    "tag": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+      "code": "HTEST",
+      "display": "test health data"
+    } ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:3e989f41-981c-4795-ab04-8a4a3d58811a"
+  },
+  "type": "document",
+  "timestamp": "2026-10-21T22:00:00+13:00",
+  "entry": [ {
+    "fullUrl": "urn:uuid:2eca6f88-e606-4389-8915-834ac17701ff",
+    "resource": {
+      "resourceType": "Composition",
+      "id": "2eca6f88-e606-4389-8915-834ac17701ff",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-composition" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>New Zealand Patient Summary (synthetic test data)</p></div>"
+      },
+      "status": "final",
+      "type": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "60591-5",
+          "display": "Patient summary Document"
+        } ]
+      },
+      "subject": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d",
+        "display": "Arjun Patel"
+      },
+      "date": "2026-10-21T22:00:00+13:00",
+      "author": [ {
+        "reference": "urn:uuid:d72ae62d-adbe-4600-b0cd-b7e9821a4eb5",
+        "display": "Kowhai Synthetic Medical Centre"
+      } ],
+      "title": "New Zealand Patient Summary - Arjun Patel",
+      "section": [ {
+        "title": "Problem List",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11450-4",
+            "display": "Problem list - Reported"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Gout (active)\r\n</li><li>Diabetes mellitus type 2 (active)\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:ee4c9093-f898-43d6-8c3b-e07dd2589e5d"
+        }, {
+          "reference": "urn:uuid:3e2ccdcf-b161-490b-ba87-bc5713b72f4a"
+        } ]
+      }, {
+        "title": "Allergies and Intolerances",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "48765-2",
+            "display": "Allergies and adverse reactions Document"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>No known allergies</p></div>"
+        },
+        "emptyReason": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/list-empty-reason",
+            "code": "nilknown",
+            "display": "Nil Known"
+          } ]
+        }
+      }, {
+        "title": "Medication Summary",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "10160-0",
+            "display": "History of Medication use Narrative"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Allopurinol - 100 mg orally once daily\r\n</li><li>Metformin - 500 mg orally twice daily with meals\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:0cae55a9-0e20-41ee-9760-9abd1b093f8d"
+        }, {
+          "reference": "urn:uuid:abe6cdbd-0ab3-4625-9e82-cb5d0dc628e1"
+        } ]
+      }, {
+        "title": "Immunizations",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11369-6",
+            "display": "History of Immunization note"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Influenza virus antigen only vaccine product given 2025-04-14\r\n</li><li>SARS-CoV-2 mRNA vaccine given 2023-03-02\r\n</li><li>Measles and mumps and rubella vaccine given 1995-08-21\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:5245ebe2-c4d7-44b9-86a6-f3e97eb3d147"
+        }, {
+          "reference": "urn:uuid:bad80b55-50e9-4eb5-8196-3bbbfc6776a7"
+        }, {
+          "reference": "urn:uuid:633ee502-32ff-48f1-b6ff-dbe1eca88b14"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "ad2737d9-f630-4079-bbb7-63f4d053a56d",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-patient" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Arjun Patel, born 1986-06-22, NHI ZMA4496 (synthetic test patient)</p></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://standards.digital.health.nz/ns/ethnic-group-level-4-code",
+            "code": "43100",
+            "display": "Indian NFD"
+          } ]
+        }
+      }, {
+        "url": "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://standards.digital.health.nz/ns/ethnic-group-level-4-code",
+            "code": "31111",
+            "display": "Samoan"
+          } ]
+        }
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "system": "https://standards.digital.health.nz/ns/nhi-id",
+        "value": "ZMA4496"
+      } ],
+      "name": [ {
+        "use": "official",
+        "family": "Patel",
+        "given": [ "Arjun" ]
+      } ],
+      "gender": "male",
+      "birthDate": "1986-06-22",
+      "address": [ {
+        "extension": [ {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/suburb",
+          "valueString": "Hamilton East"
+        } ],
+        "use": "home",
+        "type": "physical",
+        "line": [ "128 Totara Avenue" ],
+        "city": "Hamilton",
+        "postalCode": "3216",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:d72ae62d-adbe-4600-b0cd-b7e9821a4eb5",
+    "resource": {
+      "resourceType": "Organization",
+      "id": "d72ae62d-adbe-4600-b0cd-b7e9821a4eb5",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/NZPS-organization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Kowhai Synthetic Medical Centre</p></div>"
+      },
+      "active": true,
+      "name": "Kowhai Synthetic Medical Centre",
+      "address": [ {
+        "city": "Hamilton",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:ee4c9093-f898-43d6-8c3b-e07dd2589e5d",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "ee4c9093-f898-43d6-8c3b-e07dd2589e5d",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Gout (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "90560007",
+          "display": "Gout"
+        } ],
+        "text": "Gout"
+      },
+      "subject": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "onsetDateTime": "2007-09-25"
+    }
+  }, {
+    "fullUrl": "urn:uuid:3e2ccdcf-b161-490b-ba87-bc5713b72f4a",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "3e2ccdcf-b161-490b-ba87-bc5713b72f4a",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Diabetes mellitus type 2 (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "44054006",
+          "display": "Diabetes mellitus type 2"
+        } ],
+        "text": "Diabetes mellitus type 2"
+      },
+      "subject": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "onsetDateTime": "2023-06-03"
+    }
+  }, {
+    "fullUrl": "urn:uuid:0cae55a9-0e20-41ee-9760-9abd1b093f8d",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "0cae55a9-0e20-41ee-9760-9abd1b093f8d",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allopurinol - 100 mg orally once daily</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "387135004",
+          "display": "Allopurinol"
+        } ],
+        "text": "Allopurinol"
+      },
+      "subject": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "effectivePeriod": {
+        "start": "2007-09-25"
+      },
+      "dosage": [ {
+        "text": "100 mg orally once daily"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:abe6cdbd-0ab3-4625-9e82-cb5d0dc628e1",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "abe6cdbd-0ab3-4625-9e82-cb5d0dc628e1",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Metformin - 500 mg orally twice daily with meals</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "372567009",
+          "display": "Metformin"
+        } ],
+        "text": "Metformin"
+      },
+      "subject": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "effectivePeriod": {
+        "start": "2023-06-03"
+      },
+      "dosage": [ {
+        "text": "500 mg orally twice daily with meals"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:5245ebe2-c4d7-44b9-86a6-f3e97eb3d147",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "5245ebe2-c4d7-44b9-86a6-f3e97eb3d147",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Influenza virus antigen only vaccine product given 2025-04-14</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "1181000221105",
+          "display": "Influenza virus antigen only vaccine product"
+        } ],
+        "text": "Influenza virus antigen only vaccine product"
+      },
+      "patient": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "occurrenceDateTime": "2025-04-14",
+      "primarySource": true
+    }
+  }, {
+    "fullUrl": "urn:uuid:bad80b55-50e9-4eb5-8196-3bbbfc6776a7",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "bad80b55-50e9-4eb5-8196-3bbbfc6776a7",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SARS-CoV-2 mRNA vaccine given 2023-03-02</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "1119349007",
+          "display": "SARS-CoV-2 mRNA vaccine"
+        } ],
+        "text": "SARS-CoV-2 mRNA vaccine"
+      },
+      "patient": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "occurrenceDateTime": "2023-03-02",
+      "primarySource": true
+    }
+  }, {
+    "fullUrl": "urn:uuid:633ee502-32ff-48f1-b6ff-dbe1eca88b14",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "633ee502-32ff-48f1-b6ff-dbe1eca88b14",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Measles and mumps and rubella vaccine given 1995-08-21</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "871831003",
+          "display": "Measles and mumps and rubella vaccine"
+        } ],
+        "text": "Measles and mumps and rubella vaccine"
+      },
+      "patient": {
+        "reference": "urn:uuid:ad2737d9-f630-4079-bbb7-63f4d053a56d"
+      },
+      "occurrenceDateTime": "1995-08-21",
+      "primarySource": true
+    }
+  } ]
+}

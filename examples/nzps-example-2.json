@@ -1,0 +1,645 @@
+{
+  "resourceType": "Bundle",
+  "id": "adb21a1f-ef7f-4618-85d6-6d858bdc21b2",
+  "meta": {
+    "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-bundle" ],
+    "tag": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+      "code": "HTEST",
+      "display": "test health data"
+    } ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:adb21a1f-ef7f-4618-85d6-6d858bdc21b2"
+  },
+  "type": "document",
+  "timestamp": "2026-10-21T22:00:00+13:00",
+  "entry": [ {
+    "fullUrl": "urn:uuid:3bb8b418-c6dd-4cb4-aaf9-0a83cde904ee",
+    "resource": {
+      "resourceType": "Composition",
+      "id": "3bb8b418-c6dd-4cb4-aaf9-0a83cde904ee",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-composition" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>New Zealand Patient Summary (synthetic test data)</p></div>"
+      },
+      "status": "final",
+      "type": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "60591-5",
+          "display": "Patient summary Document"
+        } ]
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e",
+        "display": "Wei Wang"
+      },
+      "date": "2026-10-21T22:00:00+13:00",
+      "author": [ {
+        "reference": "urn:uuid:b2e1628c-bfa7-4f98-80ac-1559b0b33e8d",
+        "display": "Te Puna Synthetic Hauora"
+      } ],
+      "title": "New Zealand Patient Summary - Wei Wang",
+      "section": [ {
+        "title": "Problem List",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11450-4",
+            "display": "Problem list - Reported"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Gout (active)\r\n</li><li>Asthma (active)\r\n</li><li>Ischemic heart disease (active)\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:dc627144-3ba4-473f-87d1-c5152170b4b1"
+        }, {
+          "reference": "urn:uuid:0e0e6b50-f5e4-40b5-9ec1-fbe11d92c7b2"
+        }, {
+          "reference": "urn:uuid:3a283be4-ef3f-4735-98d9-9dbdc0b00888"
+        } ]
+      }, {
+        "title": "Allergies and Intolerances",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "48765-2",
+            "display": "Allergies and adverse reactions Document"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Penicillin - reaction: Anaphylaxis\r\n</li><li>Peanut - reaction: Urticaria\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:47170f27-26b2-40fd-a5aa-c9fda25f6b17"
+        }, {
+          "reference": "urn:uuid:15d6dea2-00bd-4d11-9453-82c57b411a52"
+        } ]
+      }, {
+        "title": "Medication Summary",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "10160-0",
+            "display": "History of Medication use Narrative"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Allopurinol - 100 mg orally once daily\r\n</li><li>Salbutamol - 100 microgram inhaled as required\r\n</li><li>Atorvastatin - 40 mg orally once daily at night\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:66db3b65-b061-423f-86e7-49e8475b0dd5"
+        }, {
+          "reference": "urn:uuid:a8e28697-af03-44b2-bae0-04140d2d0deb"
+        }, {
+          "reference": "urn:uuid:944926e8-fbbf-4b8b-8f1c-cfe2584f0cdd"
+        } ]
+      }, {
+        "title": "Immunizations",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11369-6",
+            "display": "History of Immunization note"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>SARS-CoV-2 mRNA vaccine given 2023-03-02\r\n</li><li>Measles and mumps and rubella vaccine given 1995-08-21\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:9e4054d8-fd7e-430b-b87a-24617facd61b"
+        }, {
+          "reference": "urn:uuid:decb1c1c-70e4-4646-b93c-eeab675f5db9"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "ada03b22-6eda-4035-8c20-bf54385dc14e",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-patient" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Wei Wang, born 1962-01-19, NHI ZDL50QB (synthetic test patient)</p></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://standards.digital.health.nz/ns/ethnic-group-level-4-code",
+            "code": "42100",
+            "display": "Chinese NFD"
+          } ]
+        }
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "system": "https://standards.digital.health.nz/ns/nhi-id",
+        "value": "ZDL50QB"
+      } ],
+      "name": [ {
+        "use": "official",
+        "family": "Wang",
+        "given": [ "Wei" ]
+      } ],
+      "gender": "male",
+      "birthDate": "1962-01-19",
+      "address": [ {
+        "extension": [ {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/suburb",
+          "valueString": "Otahuhu"
+        } ],
+        "use": "home",
+        "type": "physical",
+        "line": [ "58 Pohutukawa Drive" ],
+        "city": "Auckland",
+        "postalCode": "1062",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:b2e1628c-bfa7-4f98-80ac-1559b0b33e8d",
+    "resource": {
+      "resourceType": "Organization",
+      "id": "b2e1628c-bfa7-4f98-80ac-1559b0b33e8d",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/NZPS-organization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Te Puna Synthetic Hauora</p></div>"
+      },
+      "active": true,
+      "name": "Te Puna Synthetic Hauora",
+      "address": [ {
+        "city": "Auckland",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:dc627144-3ba4-473f-87d1-c5152170b4b1",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "dc627144-3ba4-473f-87d1-c5152170b4b1",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Gout (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "90560007",
+          "display": "Gout"
+        } ],
+        "text": "Gout"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "onsetDateTime": "2000-07-18"
+    }
+  }, {
+    "fullUrl": "urn:uuid:0e0e6b50-f5e4-40b5-9ec1-fbe11d92c7b2",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "0e0e6b50-f5e4-40b5-9ec1-fbe11d92c7b2",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Asthma (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "195967001",
+          "display": "Asthma"
+        } ],
+        "text": "Asthma"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "onsetDateTime": "1992-05-21"
+    }
+  }, {
+    "fullUrl": "urn:uuid:3a283be4-ef3f-4735-98d9-9dbdc0b00888",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "3a283be4-ef3f-4735-98d9-9dbdc0b00888",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Ischemic heart disease (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "414545008",
+          "display": "Ischemic heart disease"
+        } ],
+        "text": "Ischemic heart disease"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "onsetDateTime": "2010-03-20"
+    }
+  }, {
+    "fullUrl": "urn:uuid:47170f27-26b2-40fd-a5aa-c9fda25f6b17",
+    "resource": {
+      "resourceType": "AllergyIntolerance",
+      "id": "47170f27-26b2-40fd-a5aa-c9fda25f6b17",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-allergyintolerance" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Penicillin - reaction: Anaphylaxis</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "type": "allergy",
+      "category": [ "medication" ],
+      "criticality": "high",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "764146007",
+          "display": "Penicillin"
+        } ],
+        "text": "Penicillin"
+      },
+      "patient": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "reaction": [ {
+        "manifestation": [ {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "39579001",
+            "display": "Anaphylaxis"
+          } ],
+          "text": "Anaphylaxis"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:15d6dea2-00bd-4d11-9453-82c57b411a52",
+    "resource": {
+      "resourceType": "AllergyIntolerance",
+      "id": "15d6dea2-00bd-4d11-9453-82c57b411a52",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-allergyintolerance" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Peanut - reaction: Urticaria</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "type": "allergy",
+      "category": [ "food" ],
+      "criticality": "high",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "762952008",
+          "display": "Peanut"
+        } ],
+        "text": "Peanut"
+      },
+      "patient": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "reaction": [ {
+        "manifestation": [ {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "126485001",
+            "display": "Urticaria"
+          } ],
+          "text": "Urticaria"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:66db3b65-b061-423f-86e7-49e8475b0dd5",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "66db3b65-b061-423f-86e7-49e8475b0dd5",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Allopurinol - 100 mg orally once daily</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "387135004",
+          "display": "Allopurinol"
+        } ],
+        "text": "Allopurinol"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "effectivePeriod": {
+        "start": "2000-07-18"
+      },
+      "dosage": [ {
+        "text": "100 mg orally once daily"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:a8e28697-af03-44b2-bae0-04140d2d0deb",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "a8e28697-af03-44b2-bae0-04140d2d0deb",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Salbutamol - 100 microgram inhaled as required</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "372897005",
+          "display": "Salbutamol"
+        } ],
+        "text": "Salbutamol"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "effectivePeriod": {
+        "start": "1992-05-21"
+      },
+      "dosage": [ {
+        "text": "100 microgram inhaled as required"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:944926e8-fbbf-4b8b-8f1c-cfe2584f0cdd",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "944926e8-fbbf-4b8b-8f1c-cfe2584f0cdd",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Atorvastatin - 40 mg orally once daily at night</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "373444002",
+          "display": "Atorvastatin"
+        } ],
+        "text": "Atorvastatin"
+      },
+      "subject": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "effectivePeriod": {
+        "start": "2010-03-20"
+      },
+      "dosage": [ {
+        "text": "40 mg orally once daily at night"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:9e4054d8-fd7e-430b-b87a-24617facd61b",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "9e4054d8-fd7e-430b-b87a-24617facd61b",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SARS-CoV-2 mRNA vaccine given 2023-03-02</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "1119349007",
+          "display": "SARS-CoV-2 mRNA vaccine"
+        } ],
+        "text": "SARS-CoV-2 mRNA vaccine"
+      },
+      "patient": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "occurrenceDateTime": "2023-03-02",
+      "primarySource": true
+    }
+  }, {
+    "fullUrl": "urn:uuid:decb1c1c-70e4-4646-b93c-eeab675f5db9",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "decb1c1c-70e4-4646-b93c-eeab675f5db9",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Measles and mumps and rubella vaccine given 1995-08-21</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "871831003",
+          "display": "Measles and mumps and rubella vaccine"
+        } ],
+        "text": "Measles and mumps and rubella vaccine"
+      },
+      "patient": {
+        "reference": "urn:uuid:ada03b22-6eda-4035-8c20-bf54385dc14e"
+      },
+      "occurrenceDateTime": "1995-08-21",
+      "primarySource": true
+    }
+  } ]
+}

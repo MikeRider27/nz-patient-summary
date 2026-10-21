@@ -1,0 +1,774 @@
+{
+  "resourceType": "OperationOutcome",
+  "issue": [ {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 36
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_Error_CodeableConcept"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_Error_CodeableConcept"
+      } ]
+    },
+    "diagnostics": "Error Cannot invoke \"org.hl7.fhir.r5.model.CodeSystem.getProperty()\" because \"this.codeSystem\" is null validating CodeableConcept",
+    "location": [ "Bundle.entry[0].resource.type", "Line[36] Col[8]" ],
+    "expression": [ "Bundle.entry[0].resource.type" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 55
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "CodeSystem is unknown and can't be validated: http://loinc.org for 'http://loinc.org#11450-4'",
+    "location": [ "Bundle.entry[0].resource.section[0].code", "Line[55] Col[10]" ],
+    "expression": [ "Bundle.entry[0].resource.section[0].code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 75
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "CodeSystem is unknown and can't be validated: http://loinc.org for 'http://loinc.org#48765-2'",
+    "location": [ "Bundle.entry[0].resource.section[1].code", "Line[75] Col[10]" ],
+    "expression": [ "Bundle.entry[0].resource.section[1].code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 91
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "CodeSystem is unknown and can't be validated: http://loinc.org for 'http://loinc.org#10160-0'",
+    "location": [ "Bundle.entry[0].resource.section[2].code", "Line[91] Col[10]" ],
+    "expression": [ "Bundle.entry[0].resource.section[2].code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 111
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "CodeSystem is unknown and can't be validated: http://loinc.org for 'http://loinc.org#11369-6'",
+    "location": [ "Bundle.entry[0].resource.section[3].code", "Line[111] Col[10]" ],
+    "expression": [ "Bundle.entry[0].resource.section[3].code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 241
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@2908fc20]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[3].resource.code", "Line[241] Col[8]" ],
+    "expression": [ "Bundle.entry[3].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 241
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Problems - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/problems-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#38341003)",
+    "location": [ "Bundle.entry[3].resource.code", "Line[241] Col[8]" ],
+    "expression": [ "Bundle.entry[3].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 292
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@4f1d97d8]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[4].resource.code", "Line[292] Col[8]" ],
+    "expression": [ "Bundle.entry[4].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 292
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Problems - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/problems-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#414545008)",
+    "location": [ "Bundle.entry[4].resource.code", "Line[292] Col[8]" ],
+    "expression": [ "Bundle.entry[4].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 343
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@36d56d5d]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[5].resource.code", "Line[343] Col[8]" ],
+    "expression": [ "Bundle.entry[5].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 343
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Problems - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/problems-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#195967001)",
+    "location": [ "Bundle.entry[5].resource.code", "Line[343] Col[8]" ],
+    "expression": [ "Bundle.entry[5].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 390
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@546f0369]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[6].resource.code", "Line[390] Col[8]" ],
+    "expression": [ "Bundle.entry[6].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 390
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Allergies & Intolerances - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/allergies-intolerances-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#288328004)",
+    "location": [ "Bundle.entry[6].resource.code", "Line[390] Col[8]" ],
+    "expression": [ "Bundle.entry[6].resource.code" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 402
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@439a0f0]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[6].resource.reaction[0].manifestation[0]", "Line[402] Col[10]" ],
+    "expression": [ "Bundle.entry[6].resource.reaction[0].manifestation[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 402
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Allergy Reaction - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/allergy-reaction-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#39579001)",
+    "location": [ "Bundle.entry[6].resource.reaction[0].manifestation[0]", "Line[402] Col[10]" ],
+    "expression": [ "Bundle.entry[6].resource.reaction[0].manifestation[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 441
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'effectiveDateTime' (discriminator: ($this is dateTime))",
+    "location": [ "Bundle.entry[7].resource.effective.ofType(Period)", "Line[441] Col[8]" ],
+    "expression": [ "Bundle.entry[7].resource.effective.ofType(Period)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 430
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@347c6044]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)", "Line[430] Col[8]" ],
+    "expression": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 430
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Medications - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/medication-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#386864001)",
+    "location": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)", "Line[430] Col[8]" ],
+    "expression": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 431
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'NZMT' (discriminator: ('http://nzmt.org.nz' in system))",
+    "location": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept).coding[0]", "Line[431] Col[10]" ],
+    "expression": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 431
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'GTIN' (discriminator: ('http://www.gs1.org/gtin' in system))",
+    "location": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept).coding[0]", "Line[431] Col[10]" ],
+    "expression": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 430
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_ValueSet_NotFound"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_ValueSet_NotFound"
+      } ]
+    },
+    "diagnostics": "ValueSet 'http://nzmt.org.nz/vs' not found",
+    "location": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)", "Line[430] Col[8]" ],
+    "expression": [ "Bundle.entry[7].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 477
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'effectiveDateTime' (discriminator: ($this is dateTime))",
+    "location": [ "Bundle.entry[8].resource.effective.ofType(Period)", "Line[477] Col[8]" ],
+    "expression": [ "Bundle.entry[8].resource.effective.ofType(Period)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 466
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@53bf7b33]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)", "Line[466] Col[8]" ],
+    "expression": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 466
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Medications - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/medication-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#373444002)",
+    "location": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)", "Line[466] Col[8]" ],
+    "expression": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 467
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'NZMT' (discriminator: ('http://nzmt.org.nz' in system))",
+    "location": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0]", "Line[467] Col[10]" ],
+    "expression": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 467
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'GTIN' (discriminator: ('http://www.gs1.org/gtin' in system))",
+    "location": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0]", "Line[467] Col[10]" ],
+    "expression": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 466
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_ValueSet_NotFound"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_ValueSet_NotFound"
+      } ]
+    },
+    "diagnostics": "ValueSet 'http://nzmt.org.nz/vs' not found",
+    "location": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)", "Line[466] Col[8]" ],
+    "expression": [ "Bundle.entry[8].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 513
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'effectiveDateTime' (discriminator: ($this is dateTime))",
+    "location": [ "Bundle.entry[9].resource.effective.ofType(Period)", "Line[513] Col[8]" ],
+    "expression": [ "Bundle.entry[9].resource.effective.ofType(Period)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 502
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@f5dd2de]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)", "Line[502] Col[8]" ],
+    "expression": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 502
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Medications - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/medication-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#372897005)",
+    "location": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)", "Line[502] Col[8]" ],
+    "expression": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 503
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'NZMT' (discriminator: ('http://nzmt.org.nz' in system))",
+    "location": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept).coding[0]", "Line[503] Col[10]" ],
+    "expression": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 503
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 10
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Details_for__matching_against_Profile_"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Details_for__matching_against_Profile_"
+      } ]
+    },
+    "diagnostics": "This element does not match any known slice defined in the profile https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement|0.7.0 (this may not be a problem, but you should check that it's not intended to match a slice) - Does not match slice 'GTIN' (discriminator: ('http://www.gs1.org/gtin' in system))",
+    "location": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept).coding[0]", "Line[503] Col[10]" ],
+    "expression": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept).coding[0]" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 502
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_ValueSet_NotFound"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_ValueSet_NotFound"
+      } ]
+    },
+    "diagnostics": "ValueSet 'http://nzmt.org.nz/vs' not found",
+    "location": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)", "Line[502] Col[8]" ],
+    "expression": [ "Bundle.entry[9].resource.medication.ofType(CodeableConcept)" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 538
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_PassThrough_TX_Message"
+    } ],
+    "severity": "warning",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_PassThrough_TX_Message"
+      } ]
+    },
+    "diagnostics": "Unable to expand ValueSet: cannot apply filters '[org.hl7.fhir.r5.model.ValueSet$ConceptSetFilterComponent@1fc892c]' because CodeSystem 'http://snomed.info/sct' is ignored/not-present",
+    "location": [ "Bundle.entry[10].resource.vaccineCode", "Line[538] Col[8]" ],
+    "expression": [ "Bundle.entry[10].resource.vaccineCode" ]
+  }, {
+    "extension": [ {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-line",
+      "valueInteger": 538
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-col",
+      "valueInteger": 8
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString": "Terminology_TX_NoValid_3_CC"
+    } ],
+    "severity": "information",
+    "code": "processing",
+    "details": {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/java-core-messageId",
+        "code": "Terminology_TX_NoValid_3_CC"
+      } ]
+    },
+    "diagnostics": "None of the codings provided are in the value set 'Vaccines - IPS' (http://hl7.org/fhir/uv/ips/ValueSet/vaccines-uv-ips|2.0.0), and a coding is recommended to come from this value set (codes = http://snomed.info/sct#1119349007)",
+    "location": [ "Bundle.entry[10].resource.vaccineCode", "Line[538] Col[8]" ],
+    "expression": [ "Bundle.entry[10].resource.vaccineCode" ]
+  } ]
+}

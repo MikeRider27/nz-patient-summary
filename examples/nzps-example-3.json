@@ -1,0 +1,553 @@
+{
+  "resourceType": "Bundle",
+  "id": "4cd82947-5ac4-4eaf-b704-3492f3905b48",
+  "meta": {
+    "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-bundle" ],
+    "tag": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+      "code": "HTEST",
+      "display": "test health data"
+    } ]
+  },
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:4cd82947-5ac4-4eaf-b704-3492f3905b48"
+  },
+  "type": "document",
+  "timestamp": "2026-10-21T22:00:00+13:00",
+  "entry": [ {
+    "fullUrl": "urn:uuid:8b1b1f8e-84fb-46d6-9d12-a8a2a0987dc4",
+    "resource": {
+      "resourceType": "Composition",
+      "id": "8b1b1f8e-84fb-46d6-9d12-a8a2a0987dc4",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-composition" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>New Zealand Patient Summary (synthetic test data)</p></div>"
+      },
+      "status": "final",
+      "type": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "60591-5",
+          "display": "Patient summary Document"
+        } ]
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2",
+        "display": "Mele Taufa"
+      },
+      "date": "2026-10-21T22:00:00+13:00",
+      "author": [ {
+        "reference": "urn:uuid:568f04e1-1017-49e5-a21d-d44972f758e1",
+        "display": "Te Puna Synthetic Hauora"
+      } ],
+      "title": "New Zealand Patient Summary - Mele Taufa",
+      "section": [ {
+        "title": "Problem List",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11450-4",
+            "display": "Problem list - Reported"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Hypertensive disorder, systemic arterial (active)\r\n</li><li>Ischemic heart disease (active)\r\n</li><li>Asthma (active)\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:233e040d-4c31-4ad7-9029-568ecbce0e48"
+        }, {
+          "reference": "urn:uuid:9b78c611-1727-4e65-9f5a-d70fa12fbff8"
+        }, {
+          "reference": "urn:uuid:c776d58a-4d61-40b6-9be8-a2e5bc9392fb"
+        } ]
+      }, {
+        "title": "Allergies and Intolerances",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "48765-2",
+            "display": "Allergies and adverse reactions Document"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Bee venom - reaction: Anaphylaxis\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:1663676b-82fa-4024-b537-490adbe53efd"
+        } ]
+      }, {
+        "title": "Medication Summary",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "10160-0",
+            "display": "History of Medication use Narrative"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>Amlodipine - 5 mg orally once daily\r\n</li><li>Atorvastatin - 40 mg orally once daily at night\r\n</li><li>Salbutamol - 100 microgram inhaled as required\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:870a8466-1259-4cd6-98ed-9c4cc953a707"
+        }, {
+          "reference": "urn:uuid:984d5be1-22d9-4494-ae94-e8a284bd8e3a"
+        }, {
+          "reference": "urn:uuid:5dec373d-ba4e-4b37-9b12-0e5754cf1702"
+        } ]
+      }, {
+        "title": "Immunizations",
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "11369-6",
+            "display": "History of Immunization note"
+          } ]
+        },
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><ul><li>SARS-CoV-2 mRNA vaccine given 2023-03-02\r\n</li></ul></div>"
+        },
+        "entry": [ {
+          "reference": "urn:uuid:73c94266-7434-443c-a8b7-b384eae8e2cb"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2",
+    "resource": {
+      "resourceType": "Patient",
+      "id": "d3e6a94f-f073-4735-b77a-cd131110b0b2",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-patient" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Mele Taufa, born 1969-08-09, NHI ZNZ2272 (synthetic test patient)</p></div>"
+      },
+      "extension": [ {
+        "url": "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity",
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "https://standards.digital.health.nz/ns/ethnic-group-level-4-code",
+            "code": "33111",
+            "display": "Tongan"
+          } ]
+        }
+      } ],
+      "identifier": [ {
+        "use": "official",
+        "system": "https://standards.digital.health.nz/ns/nhi-id",
+        "value": "ZNZ2272"
+      } ],
+      "name": [ {
+        "use": "official",
+        "family": "Taufa",
+        "given": [ "Mele" ]
+      } ],
+      "gender": "female",
+      "birthDate": "1969-08-09",
+      "address": [ {
+        "extension": [ {
+          "url": "http://hl7.org.nz/fhir/StructureDefinition/suburb",
+          "valueString": "Te Aro"
+        } ],
+        "use": "home",
+        "type": "physical",
+        "line": [ "235 Harakeke Lane" ],
+        "city": "Wellington",
+        "postalCode": "6011",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:568f04e1-1017-49e5-a21d-d44972f758e1",
+    "resource": {
+      "resourceType": "Organization",
+      "id": "568f04e1-1017-49e5-a21d-d44972f758e1",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/NZPS-organization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Te Puna Synthetic Hauora</p></div>"
+      },
+      "active": true,
+      "name": "Te Puna Synthetic Hauora",
+      "address": [ {
+        "city": "Wellington",
+        "country": "NZ"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:233e040d-4c31-4ad7-9029-568ecbce0e48",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "233e040d-4c31-4ad7-9029-568ecbce0e48",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Hypertensive disorder, systemic arterial (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "38341003",
+          "display": "Hypertensive disorder, systemic arterial"
+        } ],
+        "text": "Hypertensive disorder, systemic arterial"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "onsetDateTime": "1988-10-20"
+    }
+  }, {
+    "fullUrl": "urn:uuid:9b78c611-1727-4e65-9f5a-d70fa12fbff8",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "9b78c611-1727-4e65-9f5a-d70fa12fbff8",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Ischemic heart disease (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "414545008",
+          "display": "Ischemic heart disease"
+        } ],
+        "text": "Ischemic heart disease"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "onsetDateTime": "2015-01-24"
+    }
+  }, {
+    "fullUrl": "urn:uuid:c776d58a-4d61-40b6-9be8-a2e5bc9392fb",
+    "resource": {
+      "resourceType": "Condition",
+      "id": "c776d58a-4d61-40b6-9be8-a2e5bc9392fb",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-problem" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Asthma (active)</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "category": [ {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        } ]
+      } ],
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "195967001",
+          "display": "Asthma"
+        } ],
+        "text": "Asthma"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "onsetDateTime": "1989-12-25"
+    }
+  }, {
+    "fullUrl": "urn:uuid:1663676b-82fa-4024-b537-490adbe53efd",
+    "resource": {
+      "resourceType": "AllergyIntolerance",
+      "id": "1663676b-82fa-4024-b537-490adbe53efd",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-allergyintolerance" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Bee venom - reaction: Anaphylaxis</p></div>"
+      },
+      "clinicalStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+          "code": "active",
+          "display": "Active"
+        } ]
+      },
+      "verificationStatus": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+          "code": "confirmed",
+          "display": "Confirmed"
+        } ]
+      },
+      "type": "allergy",
+      "category": [ "environment" ],
+      "criticality": "high",
+      "code": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "288328004",
+          "display": "Bee venom"
+        } ],
+        "text": "Bee venom"
+      },
+      "patient": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "reaction": [ {
+        "manifestation": [ {
+          "coding": [ {
+            "system": "http://snomed.info/sct",
+            "code": "39579001",
+            "display": "Anaphylaxis"
+          } ],
+          "text": "Anaphylaxis"
+        } ]
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:870a8466-1259-4cd6-98ed-9c4cc953a707",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "870a8466-1259-4cd6-98ed-9c4cc953a707",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Amlodipine - 5 mg orally once daily</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "386864001",
+          "display": "Amlodipine"
+        } ],
+        "text": "Amlodipine"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "effectivePeriod": {
+        "start": "1988-10-20"
+      },
+      "dosage": [ {
+        "text": "5 mg orally once daily"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:984d5be1-22d9-4494-ae94-e8a284bd8e3a",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "984d5be1-22d9-4494-ae94-e8a284bd8e3a",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Atorvastatin - 40 mg orally once daily at night</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "373444002",
+          "display": "Atorvastatin"
+        } ],
+        "text": "Atorvastatin"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "effectivePeriod": {
+        "start": "2015-01-24"
+      },
+      "dosage": [ {
+        "text": "40 mg orally once daily at night"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:5dec373d-ba4e-4b37-9b12-0e5754cf1702",
+    "resource": {
+      "resourceType": "MedicationStatement",
+      "id": "5dec373d-ba4e-4b37-9b12-0e5754cf1702",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-medicationstatement" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Salbutamol - 100 microgram inhaled as required</p></div>"
+      },
+      "status": "active",
+      "medicationCodeableConcept": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "372897005",
+          "display": "Salbutamol"
+        } ],
+        "text": "Salbutamol"
+      },
+      "subject": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "effectivePeriod": {
+        "start": "1989-12-25"
+      },
+      "dosage": [ {
+        "text": "100 microgram inhaled as required"
+      } ]
+    }
+  }, {
+    "fullUrl": "urn:uuid:73c94266-7434-443c-a8b7-b384eae8e2cb",
+    "resource": {
+      "resourceType": "Immunization",
+      "id": "73c94266-7434-443c-a8b7-b384eae8e2cb",
+      "meta": {
+        "profile": [ "https://fhir-ig.digital.health.nz/nzps/StructureDefinition/nzps-immunization" ],
+        "tag": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+          "code": "HTEST",
+          "display": "test health data"
+        } ]
+      },
+      "text": {
+        "status": "generated",
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>SARS-CoV-2 mRNA vaccine given 2023-03-02</p></div>"
+      },
+      "status": "completed",
+      "vaccineCode": {
+        "coding": [ {
+          "system": "http://snomed.info/sct",
+          "code": "1119349007",
+          "display": "SARS-CoV-2 mRNA vaccine"
+        } ],
+        "text": "SARS-CoV-2 mRNA vaccine"
+      },
+      "patient": {
+        "reference": "urn:uuid:d3e6a94f-f073-4735-b77a-cd131110b0b2"
+      },
+      "occurrenceDateTime": "2023-03-02",
+      "primarySource": true
+    }
+  } ]
+}
