@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build and test (unit + FHIR validation integration tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven # also caches the downloaded FHIR packages (~/.m2/repository/.cache)
+
+      - name: Build, unit tests, integration tests
+        run: ./mvnw -B -ntp verify
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            target/surefire-reports
+            target/failsafe-reports
+
+  docker:
+    name: Docker image build and smoke test
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          load: true
+          push: false
+          tags: nz-patient-summary:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test - generated synthetic summary validates with zero errors
+        run: |
+          docker run -d --name nzps -p 8080:8080 nz-patient-summary:ci
+          for i in $(seq 1 60); do
+            curl -fs http://localhost:8080/actuator/health/readiness | grep -q UP && break
+            sleep 2
+          done
+          errors=$(curl -fs -D - -o /dev/null "http://localhost:8080/synthetic/summary?seed=1" \
+            | tr -d '\r' | awk -F': ' 'tolower($1)=="x-validation-errors" {print $2}')
+          echo "Validation errors: ${errors}"
+          test "${errors}" = "0"
+
+      - name: Container logs
+        if: always()
+        run: docker logs nzps || true
