@@ -87,10 +87,13 @@ class ExamplesIT {
         ValidationService.Report report = validationService.validateAgainstDefaultProfile(Files.readString(file));
 
         // Keep the validation report next to the example so reviewers can inspect it without running anything.
-        String outcomeName = file.getFileName().toString().replace(".json", ".validation.json");
-        Files.writeString(file.resolveSibling(outcomeName),
-                fhirContext.newJsonParser().setPrettyPrint(true).encodeResourceToString(report.outcome()) + "\n",
-                StandardCharsets.UTF_8);
+        // Only rewritten on regeneration: messages contain object hashes that differ between runs.
+        if (Boolean.getBoolean("examples.regenerate")) {
+            String outcomeName = file.getFileName().toString().replace(".json", ".validation.json");
+            Files.writeString(file.resolveSibling(outcomeName),
+                    fhirContext.newJsonParser().setPrettyPrint(true).encodeResourceToString(report.outcome()) + "\n",
+                    StandardCharsets.UTF_8);
+        }
 
         assertThat(report.errors())
                 .as("validation errors in %s:%n%s", file, GeneratedSummaryValidationIT.describe(report.outcome(), true))
