@@ -20,6 +20,7 @@ Health NZ | Te Whatu Ora. NZPS builds on the **International Patient Summary (IP
 | `POST /summary/validate` | Validates **any** FHIR resource against NZPS + NZ Base + IPS and returns a FHIR `OperationOutcome`. |
 | `GET /synthetic/patient?seed=` | Returns a realistic but fake NZ patient as JSON input, ready for `/summary/generate`. The same seed always gives the same patient. |
 | `GET /synthetic/summary?seed=` | Returns a complete, validated NZPS Bundle for a synthetic patient. |
+| `GET /` | **Bundle viewer**: a web page to load synthetic patients, open or paste Bundles, and read them as a clinical summary with validation issues. |
 | `GET /actuator/health` | Liveness and readiness. |
 
 ## Why it matters
@@ -182,6 +183,22 @@ docker compose up --build
 This uses a multi-stage build: JDK 21 and Maven to build, then a slim **JRE 21 Alpine** image that
 runs as a **non-root** user, with a readiness health check. The validator warms up at start-up
 (about 8 s), so the first request is fast.
+
+### Bundle viewer
+
+Open **http://localhost:8080/** for a dependency-free web viewer served by the same container:
+
+- **Load** a synthetic patient by seed (legacy or expanded NHI), open a `.json` file, or paste JSON.
+  Both a FHIR Bundle and a `/summary/generate` request are accepted.
+- **Summary tab:** a patient banner (NHI and its format, age, ethnicity, NZ address, *synthetic test
+  data* flag), the document metadata, and each Composition section in order, with its entries shown
+  as cards. Empty sections show their `emptyReason`.
+- **Validation tab:** the `OperationOutcome` as a table you can filter by severity. Each card also
+  shows a chip with the issues that point at its `Bundle.entry[n]`.
+- **JSON tab:** the raw Bundle.
+
+Narrative XHTML from uploaded Bundles is treated as untrusted. Only its text is displayed, and it is
+never injected as HTML.
 
 ---
 

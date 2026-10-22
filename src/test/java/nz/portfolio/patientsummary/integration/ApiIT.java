@@ -114,6 +114,14 @@ class ApiIT {
     }
 
     @Test
+    void bundleViewerIsServed() throws Exception {
+        String page = mvc.perform(get("/index.html"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+        assertThat(page).contains("Bundle Viewer").contains("summary/validate");
+    }
+
+    @Test
     void syntheticPatientIsReproducible() throws Exception {
         String first = mvc.perform(get("/synthetic/patient").param("seed", "42")).andReturn().getResponse().getContentAsString();
         String second = mvc.perform(get("/synthetic/patient").param("seed", "42")).andReturn().getResponse().getContentAsString();

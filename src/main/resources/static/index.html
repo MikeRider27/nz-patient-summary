@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NZPS Bundle Viewer</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --surface-2: #f0f2f5; --text: #1b1f24; --muted: #5d6673;
+    --border: #d9dde3; --accent: #0b6e69; --accent-text: #ffffff;
+    --error: #b42318; --error-bg: #fde8e7; --warning: #8a5a00; --warning-bg: #fff3d6;
+    --info: #1f5f99; --info-bg: #e5f0fb; --ok: #18794e; --ok-bg: #e3f5ec;
+    --radius: 10px; --mono: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111418; --surface: #1a1e24; --surface-2: #232830; --text: #e6e9ee; --muted: #9aa3ae;
+      --border: #333a44; --accent: #3fb8af; --accent-text: #0b1214;
+      --error: #ff8a80; --error-bg: #3a1c1a; --warning: #f5c26b; --warning-bg: #352a12;
+      --info: #8cc2f5; --info-bg: #182a3d; --ok: #6fd3a2; --ok-bg: #15302a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 16px; }
+  header h1 { margin: 0; font-size: 18px; }
+  header p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; background: var(--surface);
+             border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
+  .field { display: flex; flex-direction: column; gap: 2px; font-size: 12px; color: var(--muted); }
+  input, select, textarea, button { font: inherit; color: var(--text); }
+  input, select, textarea { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; }
+  input[type=number] { width: 110px; }
+  button { background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+  button.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  button:disabled { opacity: .6; cursor: wait; }
+  .sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 4px; }
+  details.paste { margin-top: 8px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 12px; }
+  details.paste summary { cursor: pointer; color: var(--muted); }
+  textarea { width: 100%; min-height: 160px; font-family: var(--mono); font-size: 12px; margin: 8px 0; }
+  #status { margin: 10px 2px; min-height: 22px; color: var(--muted); font-size: 13px; }
+  #status.error { color: var(--error); }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-top: 4px; overflow-x: auto; }
+  .tab { border: none; border-bottom: 2px solid transparent; border-radius: 0; background: none; padding: 8px 12px; color: var(--muted); white-space: nowrap; }
+  .tab[aria-selected=true] { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+  .panel { padding-top: 14px; }
+  .panel[hidden] { display: none; }
+  .empty { color: var(--muted); padding: 40px 0; text-align: center; }
+
+  .banner { background: var(--surface); border: 1px solid var(--border); border-left: 5px solid var(--accent);
+            border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 6px; }
+  .banner h2 { margin: 0; font-size: 22px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 14px; }
+  .facts b { color: var(--text); font-weight: 600; }
+  .chip { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+  .chip.test { background: var(--warning-bg); color: var(--warning); }
+  .chip.error { background: var(--error-bg); color: var(--error); }
+  .chip.warning { background: var(--warning-bg); color: var(--warning); }
+  .chip.information { background: var(--info-bg); color: var(--info); }
+  .chip.ok { background: var(--ok-bg); color: var(--ok); }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 12px 2px; font-size: 13px; color: var(--muted); }
+  .meta b { color: var(--text); font-weight: 600; }
+
+  .section { margin-top: 18px; }
+  .section h3 { margin: 0 0 8px; font-size: 16px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+  .section h3 small { color: var(--muted); font-weight: 400; font-size: 12px; font-family: var(--mono); }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; position: relative; }
+  .card.has-error { border-color: var(--error); }
+  .card h4 { margin: 0 0 6px; font-size: 15px; padding-right: 64px; }
+  .card .flags { position: absolute; top: 10px; right: 10px; display: flex; gap: 4px; }
+  .card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; font-size: 13px; }
+  .card dt { color: var(--muted); }
+  .card dd { margin: 0; overflow-wrap: anywhere; }
+  .code { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .emptyreason { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 10px 12px; color: var(--muted); font-size: 14px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: 13px; }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--surface-2); font-weight: 600; }
+  td.loc { font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; max-width: 340px; }
+  .table-wrap { overflow-x: auto; }
+  pre.json { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; overflow: auto; font: 12px/1.45 var(--mono); max-height: 75vh; }
+  @media (max-width: 600px) { .sep { display: none; } .card h4 { padding-right: 0; } .card .flags { position: static; margin-bottom: 4px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>NZ Patient Summary &middot; Bundle Viewer</h1>
+  <p>Renders and validates NZPS / IPS FHIR R4 document Bundles. Synthetic test data only.</p>
+</header>
+
+<main>
+  <div class="toolbar">
+    <label class="field">Seed
+      <input id="seed" type="number" min="1" placeholder="random">
+    </label>
+    <label class="field">NHI format
+      <select id="nhiFormat">
+        <option value="LEGACY">Legacy (AAANNNC)</option>
+        <option value="EXPANDED">Expanded (AAANNAX)</option>
+      </select>
+    </label>
+    <button id="btnSynthetic" class="primary">Load synthetic patient</button>
+    <span class="sep"></span>
+    <label class="field">Open a Bundle or request file
+      <input id="file" type="file" accept=".json,application/json,application/fhir+json">
+    </label>
+  </div>
+
+  <details class="paste">
+    <summary>Paste JSON (a FHIR Bundle, or a <code>/summary/generate</code> request)</summary>
+    <textarea id="pasteArea" spellcheck="false" placeholder='{"resourceType": "Bundle", ...}'></textarea>
+    <button id="btnPaste" class="primary">Render</button>
+  </details>
+
+  <div id="status" role="status"></div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="summary" aria-selected="true">Summary</button>
+    <button class="tab" role="tab" data-tab="validation" aria-selected="false">Validation <span id="tabCounts"></span></button>
+    <button class="tab" role="tab" data-tab="json" aria-selected="false">JSON</button>
+  </div>
+
+  <section id="panel-summary" class="panel"><div class="empty">Load a synthetic patient, open a file or paste JSON to begin.</div></section>
+  <section id="panel-validation" class="panel" hidden><div class="empty">No validation run yet.</div></section>
+  <section id="panel-json" class="panel" hidden><div class="empty">Nothing loaded.</div></section>
+</main>
+
+<script>
+(() => {
+  "use strict";
+
+  const SYSTEMS = {
+    "http://snomed.info/sct": "SNOMED CT",
+    "http://loinc.org": "LOINC",
+    "http://nzmt.org.nz": "NZMT",
+    "https://standards.digital.health.nz/ns/ethnic-group-level-4-code": "Stats NZ ethnicity L4"
+  };
+  const NHI_SYSTEM = "https://standards.digital.health.nz/ns/nhi-id";
+  const ETHNICITY_URL = "http://hl7.org.nz/fhir/StructureDefinition/nz-ethnicity";
+  const SUBURB_URL = "http://hl7.org.nz/fhir/StructureDefinition/suburb";
+  const SEVERITY_ORDER = ["fatal", "error", "warning", "information"];
+
+  const $ = (id) => document.getElementById(id);
+  let state = { bundle: null, raw: "", outcome: null };
+
+  // ---------- tiny DOM helper: everything is set via textContent, never innerHTML ----------
+  function el(tag, attrs, ...children) {
+    const node = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === "class") node.className = v; else node.setAttribute(k, v);
+    }
+    for (const child of children.flat()) {
+      if (child == null || child === false) continue;
+      node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+    }
+    return node;
+  }
+
+  function setStatus(message, isError) {
+    const s = $("status");
+    s.textContent = message || "";
+    s.className = isError ? "error" : "";
+  }
+
+  // ---------- FHIR value helpers ----------
+  function concept(cc) {
+    if (!cc) return null;
+    const coding = (cc.coding || [])[0] || {};
+    return { text: cc.text || coding.display || coding.code || "(no display)", code: coding.code, system: coding.system };
+  }
+  function codeLine(cc) {
+    const c = concept(cc);
+    if (!c || !c.code) return null;
+    return el("span", { class: "code" }, (SYSTEMS[c.system] || c.system || "") + " " + c.code);
+  }
+  function statusOf(cc) { const c = concept(cc); return c ? c.code || c.text : null; }
+  function formatDate(value) {
+    if (!value) return null;
+    const m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/.exec(value);
+    if (!m) return value;
+    if (!m[2]) return m[1];
+    const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3] || 1));
+    const opts = m[3] ? { day: "numeric", month: "short", year: "numeric" } : { month: "short", year: "numeric" };
+    let text = d.toLocaleDateString("en-NZ", opts);
+    if (value.length > 10 && value.includes("T")) text += " " + value.substring(11, 16);
+    return text;
+  }
+  function age(birthDate) {
+    const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(birthDate || "");
+    if (!m) return null;
+    const now = new Date();
+    let years = now.getFullYear() - Number(m[1]);
+    if (now.getMonth() + 1 < Number(m[2]) || (now.getMonth() + 1 === Number(m[2]) && now.getDate() < Number(m[3]))) years--;
+    return years;
+  }
+  function humanName(name) {
+    if (!name) return "(unnamed)";
+    return name.text || [...(name.given || []), name.family].filter(Boolean).join(" ") || "(unnamed)";
+  }
+  function isTestData(resource) {
+    return (resource?.meta?.tag || []).concat(resource?.meta?.security || []).some(t => t.code === "HTEST");
+  }
+  function nhiFormat(nhi) {
+    if (/^[A-Z]{3}\d{4}$/i.test(nhi)) return "legacy format";
+    if (/^[A-Z]{3}\d{2}[A-Z]{2}$/i.test(nhi)) return "expanded format";
+    return "unrecognised format";
+  }
+
+  // ---------- rendering: summary ----------
+  function details(pairs) {
+    const dl = el("dl");
+    for (const [label, value] of pairs) {
+      if (value == null || value === "") continue;
+      dl.append(el("dt", null, label), el("dd", null, value));
+    }
+    return dl;
+  }
+
+  function cardFor(entry, index) {
+    const r = entry.resource || {};
+    let title, pairs;
+    switch (r.resourceType) {
+      case "Condition":
+        title = concept(r.code)?.text;
+        pairs = [["Code", codeLine(r.code)], ["Status", statusOf(r.clinicalStatus)],
+                 ["Verification", statusOf(r.verificationStatus)], ["Onset", formatDate(r.onsetDateTime || r.onsetPeriod?.start)]];
+        break;
+      case "MedicationStatement":
+      case "MedicationRequest": {
+        const med = r.medicationCodeableConcept;
+        title = concept(med)?.text || (r.medicationReference?.display) || "Medication";
+        const codings = (med?.coding || []).map(c => el("div", { class: "code" }, (SYSTEMS[c.system] || c.system) + " " + c.code));
+        const effective = r.effectivePeriod?.start || r.effectiveDateTime ||
+          (r._effectiveDateTime ? "unknown (data-absent-reason)" : null);
+        pairs = [["Codes", codings.length ? el("div", null, codings) : null], ["Dosage", (r.dosage || r.dosageInstruction || [])[0]?.text],
+                 ["Status", r.status], ["Since", effective && !effective.startsWith("unknown") ? formatDate(effective) : effective]];
+        break;
+      }
+      case "AllergyIntolerance": {
+        title = concept(r.code)?.text;
+        const reactions = (r.reaction || []).flatMap(x => (x.manifestation || []).map(m => concept(m)?.text)).join(", ");
+        pairs = [["Code", codeLine(r.code)], ["Category", (r.category || []).join(", ")],
+                 ["Criticality", r.criticality], ["Reaction", reactions], ["Status", statusOf(r.clinicalStatus)]];
+        break;
+      }
+      case "Immunization":
+        title = concept(r.vaccineCode)?.text;
+        pairs = [["Code", codeLine(r.vaccineCode)], ["Date", formatDate(r.occurrenceDateTime)],
+                 ["Status", r.status], ["Lot", r.lotNumber]];
+        break;
+      case "Observation":
+        title = concept(r.code)?.text;
+        pairs = [["Code", codeLine(r.code)], ["Value", r.valueQuantity ? r.valueQuantity.value + " " + (r.valueQuantity.unit || "") :
+                 concept(r.valueCodeableConcept)?.text || r.valueString], ["Date", formatDate(r.effectiveDateTime)]];
+        break;
+      default:
+        title = r.resourceType || "Resource";
+        pairs = [["Narrative", narrativeText(r)]];
+    }
+    const card = el("article", { class: "card", "data-entry": index },
+      el("div", { class: "flags" }),
+      el("h4", null, title || "(no display)"),
+      details(pairs));
+    return card;
+  }
+
+  /** Narrative XHTML is untrusted input: extract its text only, never inject it as HTML. */
+  function narrativeText(resource) {
+    const div = resource?.text?.div;
+    if (!div) return null;
+    const doc = new DOMParser().parseFromString(div, "text/html");
+    return (doc.body.textContent || "").trim();
+  }
+
+  function renderSummary(bundle) {
+    const panel = $("panel-summary");
+    panel.replaceChildren();
+
+    const entries = bundle.entry || [];
+    const byUrl = new Map(entries.map((e, i) => [e.fullUrl, { entry: e, index: i }]));
+    const resolve = (ref) => {
+      if (!ref?.reference) return null;
+      return byUrl.get(ref.reference) ||
+        [...byUrl.values()].find(v => v.entry.resource &&
+          ref.reference === v.entry.resource.resourceType + "/" + v.entry.resource.id) || null;
+    };
+
+    const composition = entries[0]?.resource?.resourceType === "Composition" ? entries[0].resource
+      : entries.map(e => e.resource).find(r => r?.resourceType === "Composition");
+    if (bundle.resourceType !== "Bundle" || !composition) {
+      panel.append(el("div", { class: "empty" },
+        "This is not a document Bundle with a Composition - see the Validation and JSON tabs."));
+      return;
+    }
+
+    // Patient banner
+    const patientHit = resolve(composition.subject);
+    const patient = patientHit?.entry.resource;
+    if (patient) {
+      const nhi = (patient.identifier || []).find(i => i.system === NHI_SYSTEM && i.use !== "old");
+      const ethnicities = (patient.extension || []).filter(x => x.url === ETHNICITY_URL)
+        .map(x => concept(x.valueCodeableConcept)?.text).filter(Boolean);
+      const addr = (patient.address || [])[0];
+      const suburb = addr && (addr.extension || []).find(x => x.url === SUBURB_URL)?.valueString;
+      const address = addr ? [...(addr.line || []), suburb, addr.city, addr.postalCode].filter(Boolean).join(", ") : null;
+      const years = age(patient.birthDate);
+      const banner = el("div", { class: "banner", "data-entry": patientHit.index },
+        el("div", { class: "facts" },
+          isTestData(patient) ? el("span", { class: "chip test" }, "SYNTHETIC TEST DATA") : null,
+          el("span", { class: "flags" })),
+        el("h2", null, humanName((patient.name || [])[0])),
+        el("div", { class: "facts" },
+          nhi ? el("span", null, "NHI ", el("b", null, nhi.value), " (" + nhiFormat(nhi.value) + ")") : el("span", null, "No NHI"),
+          patient.birthDate ? el("span", null, "Born ", el("b", null, formatDate(patient.birthDate)),
+            years != null ? " (" + years + " y)" : "") : null,
+          patient.gender ? el("span", null, "Gender ", el("b", null, patient.gender)) : null,
+          ethnicities.length ? el("span", null, "Ethnicity ", el("b", null, ethnicities.join(", "))) : null),
+        address ? el("div", { class: "facts" }, el("span", null, address)) : null);
+      panel.append(banner);
+    }
+
+    // Document metadata
+    const author = (composition.author || []).map(a => resolve(a)?.entry.resource?.name || a.display).filter(Boolean).join(", ");
+    panel.append(el("div", { class: "meta" },
+      el("span", null, el("b", null, composition.title || "Patient summary")),
+      el("span", null, "Status ", el("b", null, composition.status)),
+      composition.date ? el("span", null, "Date ", el("b", null, formatDate(composition.date))) : null,
+      author ? el("span", null, "Author ", el("b", null, author)) : null,
+      el("span", null, "Entries ", el("b", null, entries.length))));
+
+    // Sections in Composition order
+    for (const section of composition.section || []) {
+      const code = concept(section.code);
+      const block = el("section", { class: "section" },
+        el("h3", null, section.title || code?.text || "Section",
+          code?.code ? el("small", null, "LOINC " + code.code) : null));
+      if ((section.entry || []).length === 0) {
+        const reason = concept(section.emptyReason);
+        block.append(el("div", { class: "emptyreason" },
+          (reason ? "Empty: " + reason.text + ". " : "") + (narrativeText(section) || "")));
+      } else {
+        const cards = el("div", { class: "cards" });
+        for (const ref of section.entry) {
+          const hit = resolve(ref);
+          cards.append(hit ? cardFor(hit.entry, hit.index)
+            : el("article", { class: "card has-error" }, el("h4", null, "Unresolved reference"),
+                details([["Reference", ref.reference]])));
+        }
+        block.append(cards);
+      }
+      panel.append(block);
+    }
+    decorateWithIssues();
+  }
+
+  // ---------- rendering: validation ----------
+  function severityCounts(outcome) {
+    const counts = { error: 0, warning: 0, information: 0 };
+    for (const issue of outcome?.issue || []) {
+      const sev = issue.severity === "fatal" ? "error" : issue.severity;
+      if (sev in counts) counts[sev]++;
+    }
+    return counts;
+  }
+
+  function issueLocation(issue) {
+    return (issue.expression || [])[0] || (issue.location || [])[0] || "";
+  }
+
+  function renderValidation(outcome) {
+    const panel = $("panel-validation");
+    panel.replaceChildren();
+    const counts = severityCounts(outcome);
+    const tabCounts = $("tabCounts");
+    tabCounts.replaceChildren(counts.error
+      ? el("span", { class: "chip error" }, counts.error)
+      : el("span", { class: "chip ok" }, "0"));
+
+    panel.append(el("div", { class: "meta" },
+      el("span", { class: counts.error ? "chip error" : "chip ok" }, counts.error + " errors"),
+      el("span", { class: "chip warning" }, counts.warning + " warnings"),
+      el("span", { class: "chip information" }, counts.information + " information"),
+      el("span", null, "Validated against NZPS 0.7.0 / NZ Base 3.0.1 / IPS 2.0.0")));
+
+    const filters = el("div", { class: "filters" });
+    const shown = { error: true, warning: true, information: false };
+    const tbody = el("tbody");
+    const draw = () => {
+      tbody.replaceChildren();
+      const issues = [...(outcome.issue || [])]
+        .sort((a, b) => SEVERITY_ORDER.indexOf(a.severity) - SEVERITY_ORDER.indexOf(b.severity));
+      let rows = 0;
+      for (const issue of issues) {
+        const sev = issue.severity === "fatal" ? "error" : issue.severity;
+        if (!shown[sev]) continue;
+        rows++;
+        tbody.append(el("tr", null,
+          el("td", null, el("span", { class: "chip " + sev }, issue.severity)),
+          el("td", { class: "loc" }, issueLocation(issue)),
+          el("td", null, issue.diagnostics || concept(issue.details)?.text || "")));
+      }
+      if (!rows) tbody.append(el("tr", null, el("td", { colspan: 3 }, "No issues for the selected severities.")));
+    };
+    for (const sev of Object.keys(shown)) {
+      const box = el("input", { type: "checkbox" });
+      box.checked = shown[sev];
+      box.addEventListener("change", () => { shown[sev] = box.checked; draw(); });
+      filters.append(el("label", null, box, " " + sev + " (" + counts[sev] + ")"));
+    }
+    panel.append(filters, el("div", { class: "table-wrap" }, el("table", null,
+      el("thead", null, el("tr", null, el("th", null, "Severity"), el("th", null, "Location"), el("th", null, "Message"))),
+      tbody)));
+    draw();
+  }
+
+  /** Puts error/warning chips on the cards whose Bundle entry the issues point at. */
+  function decorateWithIssues() {
+    if (!state.outcome) return;
+    const perEntry = new Map();
+    for (const issue of state.outcome.issue || []) {
+      const m = /Bundle\.entry\[(\d+)\]/.exec(issueLocation(issue));
+      if (!m) continue;
+      const sev = issue.severity === "fatal" ? "error" : issue.severity;
+      if (sev !== "error" && sev !== "warning") continue;
+      const counts = perEntry.get(m[1]) || { error: 0, warning: 0 };
+      counts[sev]++;
+      perEntry.set(m[1], counts);
+    }
+    document.querySelectorAll("[data-entry]").forEach(node => {
+      const counts = perEntry.get(node.getAttribute("data-entry"));
+      const flags = node.querySelector(".flags");
+      if (!counts || !flags) return;
+      flags.replaceChildren(...[
+        counts.error ? el("span", { class: "chip error", title: "Validation errors for this resource" }, counts.error + " err") : null,
+        counts.warning ? el("span", { class: "chip warning", title: "Validation warnings for this resource" }, counts.warning + " warn") : null
+      ].filter(Boolean));
+      // Only errors outline a card: offline validation always yields terminology warnings.
+      if (counts.error) node.classList.add("has-error");
+    });
+  }
+
+  function renderJson(raw) {
+    let pretty = raw;
+    try { pretty = JSON.stringify(JSON.parse(raw), null, 2); } catch (_) { /* show as-is */ }
+    $("panel-json").replaceChildren(el("pre", { class: "json" }, pretty));
+  }
+
+  // ---------- data flow ----------
+  async function validate(raw) {
+    const response = await fetch("summary/validate", {
+      method: "POST", headers: { "Content-Type": "application/fhir+json" }, body: raw
+    });
+    state.outcome = await response.json();
+    renderValidation(state.outcome);
+    decorateWithIssues();
+    return severityCounts(state.outcome);
+  }
+
+  async function show(raw, origin) {
+    state.raw = raw;
+    state.outcome = null;
+    let parsed;
+    try { parsed = JSON.parse(raw); } catch (e) { setStatus("Invalid JSON: " + e.message, true); return; }
+    state.bundle = parsed;
+    renderJson(raw);
+    renderSummary(parsed);
+    setStatus(origin + " - validating...");
+    const counts = await validate(raw);
+    setStatus(origin + " - " + counts.error + " errors, " + counts.warning + " warnings.", counts.error > 0);
+  }
+
+  async function run(button, task) {
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(b => b.disabled = true);
+    try { await task(); }
+    catch (e) { setStatus("Request failed: " + e.message, true); }
+    finally { buttons.forEach(b => b.disabled = false); }
+  }
+
+  async function loadSynthetic() {
+    const seedInput = $("seed").value.trim();
+    const params = new URLSearchParams({ nhiFormat: $("nhiFormat").value });
+    if (seedInput) params.set("seed", seedInput);
+    setStatus("Generating synthetic patient...");
+    const response = await fetch("synthetic/summary?" + params);
+    const seed = response.headers.get("X-Synthetic-Seed");
+    if (!seedInput && seed) $("seed").placeholder = "last: " + seed;
+    await show(await response.text(), "Synthetic patient (seed " + seed + ")");
+  }
+
+  /** Accepts a FHIR Bundle (rendered + validated) or a generate request (generated first). */
+  async function loadText(text, origin) {
+    let parsed;
+    try { parsed = JSON.parse(text); } catch (e) { setStatus("Invalid JSON: " + e.message, true); return; }
+    if (!parsed.resourceType && parsed.patient) {
+      setStatus("Generating summary from request...");
+      const response = await fetch("summary/generate", {
+        method: "POST", headers: { "Content-Type": "application/json" }, body: text
+      });
+      const body = await response.text();
+      if (!response.ok) {
+        state.outcome = JSON.parse(body);
+        renderValidation(state.outcome);
+        renderJson(body);
+        selectTab("validation");
+        setStatus("The request was rejected (HTTP " + response.status + ") - see Validation.", true);
+        return;
+      }
+      await show(body, origin + " (generated)");
+      return;
+    }
+    await show(text, origin);
+  }
+
+  function selectTab(name) {
+    document.querySelectorAll(".tab").forEach(t => t.setAttribute("aria-selected", String(t.dataset.tab === name)));
+    document.querySelectorAll(".panel").forEach(p => { p.hidden = p.id !== "panel-" + name; });
+  }
+
+  // ---------- wiring ----------
+  document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => selectTab(t.dataset.tab)));
+  $("btnSynthetic").addEventListener("click", (e) => run(e.target, loadSynthetic));
+  $("btnPaste").addEventListener("click", (e) => run(e.target, () => loadText($("pasteArea").value, "Pasted JSON")));
+  $("file").addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    await run(null, async () => loadText(await file.text(), file.name));
+    e.target.value = "";
+  });
+})();
+</script>
+</body>
+</html>
