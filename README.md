@@ -303,10 +303,15 @@ not available offline). With `tx.fhir.org` the examples also validate with **0 e
 
 ---
 
-## About me
+## Author
 
-*Placeholder: a short introduction, your FHIR and NZ health sector experience, and contact links
-(LinkedIn, email).*
+**Miguel Villalba** · [mike.mavc27@gmail.com](mailto:mike.mavc27@gmail.com) ·
+GitHub [@MikeRider27](https://github.com/MikeRider27)
+
+## License
+
+Released under the [MIT License](LICENSE). The vendored NZPS 0.7.0 package in
+`src/main/resources/fhir-packages` keeps its own CC0 licence.
 
 ---
 
