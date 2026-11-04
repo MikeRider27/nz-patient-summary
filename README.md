@@ -1,6 +1,6 @@
 # NZ Patient Summary Service
 
-[![CI](https://github.com/YOUR-GITHUB-USER/nz-patient-summary/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-GITHUB-USER/nz-patient-summary/actions/workflows/ci.yml)
+[![CI](https://github.com/MikeRider27/nz-patient-summary/actions/workflows/ci.yml/badge.svg)](https://github.com/MikeRider27/nz-patient-summary/actions/workflows/ci.yml)
 
 A Spring Boot service that **generates and validates New Zealand Patient Summaries** as HL7® FHIR® R4
 document Bundles, conforming to the official **NZ Patient Summary (NZPS)** profiles published by
@@ -161,6 +161,11 @@ unassigned, every resource is also tagged `meta.tag = v3-ActReason#HTEST`.
 ## Develop (dev container, so no local JDK is needed)
 
 The only requirements are **Docker** and **VS Code** with the *Dev Containers* extension.
+
+```bash
+git clone https://github.com/MikeRider27/nz-patient-summary.git
+cd nz-patient-summary
+```
 
 1. Open the folder in VS Code and run **Dev Containers: Reopen in Container**.
    The container has Java 21, Maven, the Docker CLI (docker-outside-of-docker) and the Java and
